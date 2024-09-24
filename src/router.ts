@@ -1,4 +1,4 @@
-import {createMemoryHistory, createRouter, RouteRecordRaw} from 'vue-router'
+import {createMemoryHistory, createRouter, RouteRecordRaw, RouterOptions} from 'vue-router'
 const Layout = () => import("./layout/index.vue");
 import Login from "./components/Login.vue"
 import Loading from "./components/Loading.vue"
@@ -40,10 +40,12 @@ const routes = [
 
 ] as Array<RouteRecordRaw>
 
-const router = createRouter({
+const opt = {
     history: createMemoryHistory(),
-    routes: routes,
-})
+    routes: routes
+} as RouterOptions;
+
+const router = createRouter(opt);
 
 const LoginPath = "/Login"
 router.beforeEach((to, from, next) => {
