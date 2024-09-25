@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { reactive } from 'vue'
 import { useRouter } from "vue-router";
-//import { post } from "/src/utils/request"
-//import { Md5 } from 'ts-md5';
+import { post } from "/src/utils/request"
+import { Md5 } from 'ts-md5';
 import { useAuthStore } from "/src/stores/auth";
 
 const router = useRouter()
@@ -10,18 +10,16 @@ const router = useRouter()
 // do not use same name with ref
 const form = reactive({
     name: '',
-    passwd: '',
+    password: '',
 })
 
 const onSubmit = () => {
-    /*
-    post("/auth/login", {username: form.name, password: Md5.hashStr(form.passwd)}).then((data) => {
+    post("/auth/login", {username: form.name, password: Md5.hashStr(form.password)}).then((data) => {
         const authStore = useAuthStore();
         authStore.setToken(data.token);
         authStore.setExpire(data.expire);
         router.push("/")
-    })*/
-    router.push("/")
+    })
 }
 </script>
 
@@ -33,7 +31,7 @@ const onSubmit = () => {
                     <el-input v-model="form.name" />
                 </el-form-item>
                 <el-form-item label="密码">
-                    <el-input v-model="form.passwd" type="password"/>
+                    <el-input v-model="form.password" type="password"/>
                 </el-form-item>
 
                 <el-form-item label=" ">
