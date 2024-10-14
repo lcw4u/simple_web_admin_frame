@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { shallowRef, ref } from 'vue'
-/*
+
 import {
     EditPen,
     Tickets,
@@ -8,12 +8,11 @@ import {
     Files,
     Operation,
 } from '@element-plus/icons-vue'
-*/
+
 const menus = shallowRef([
-    {path: "/MenuMain", title: "主页"},
-    {path: "/MenuMain", title: "菜单1"},
-    {path: "/MenuMain", title: "菜单2"},
-    {path: "/MenuMain", title: "菜单3"},
+    {path: "/MenuHome", title: "主页", icon:Operation},
+    {path: "/MenuPage1", title: "菜单1", icon:Money},
+    {path: "/MenuPage2", title: "菜单2", icon:Tickets},
 ])
 
 defineProps(['mode']);
@@ -30,13 +29,13 @@ defineProps(['mode']);
             text-color="#fff"
             @open="handleOpen"
             @close="handleClose"
-            default-active="/MenuMain"
+            default-active="/MenuHome"
     >
 
         <el-menu-item v-for="menu in menus"
                       :index="menu.path">
             <el-icon class="hidden-md-and-down">
-                <!--component :is="menu.icon"></component-->
+                <component :is="menu.icon"></component>
             </el-icon>
             {{menu.title}}
         </el-menu-item>

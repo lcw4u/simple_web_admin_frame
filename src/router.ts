@@ -4,12 +4,13 @@ import Login from "./components/Login.vue"
 import Loading from "./components/Loading.vue"
 import { useAuthStore } from './stores/auth';
 //import {post} from "./utils/request"
-const files = import.meta.glob("./components/Menu*.vue", { eager: true })
+const files = import.meta.glob("./components/Menu*/index.vue", { eager: true })
 
 let children = []
 for (const key in files) {
     const componentConfig = files[key];
-    const path = "/" + key.split("/").pop()?.split(".")[0]
+    const path = "/" + key.split("/").slice(0,-1).pop()?.split(".")[0]
+    console.log(path)
     children.push({path: path, component: componentConfig.default});
 }
 
