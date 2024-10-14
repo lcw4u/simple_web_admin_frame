@@ -11,7 +11,7 @@
 
 <template>
 
-    Home22
+    <h3>这里是后台管理框架</h3>
     <el-button type="danger" @click="test">CLICK</el-button>
 
 </template>

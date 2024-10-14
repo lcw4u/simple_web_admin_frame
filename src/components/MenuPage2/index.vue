@@ -11,7 +11,10 @@
 
 <template>
 
-    Page2
+    <div class="tip custom-block">
+        <p class="custom-block-title">TIP</p>
+        <p>这是页面2</p>
+    </div>
     <el-button type="danger" @click="test">CLICK</el-button>
 
 </template>
