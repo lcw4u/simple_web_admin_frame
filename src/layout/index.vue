@@ -5,19 +5,19 @@ import {
     Position
 } from '@element-plus/icons-vue'
 
-/*
+
 import { useAuthStore } from "/src/stores/auth";
-*/
 import { useRouter } from "vue-router";
-/*
+
 import { post } from "/src/utils/request"
-import 'element-plus/theme-chalk/display.css'*/
+/*import 'element-plus/theme-chalk/display.css'*/
 const router = useRouter()
 
 function onLogout(){
-    //post("/auth/logout")
-    //useAuthStore().clearToken();
-    router.push("/Login")
+    post("/auth/logout").then(()=>{
+        useAuthStore().clearToken();
+        router.push("/Login")
+    })
 }
 </script>
 
